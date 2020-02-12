@@ -1,6 +1,7 @@
 import DiceRoller
 
-class PlanetSize():
+
+class PlanetSize:
     def __init__(self, seed, uwp=None):
         if uwp is None:
             self.uwp = ['X', 0, 0, 0, 0, 0, 0, 0] #TODO UWP Class
@@ -82,4 +83,71 @@ class PlanetSize():
         self.generate_density()
         self.generate_mass()
         self.generate_gravity()
+
+
+class GasGiantSize: #TODO inherentice from PlanetSize
+    def __init__(self, seed, uwp = None):
+        self.is_small_gg = False
+        self.diameter = None
+        self.density = None
+        self.mass = None
+        self.core = None
+        self.gravity = None
+        self.dice = DiceRoller(seed)
+        if uwp is None:
+            self.uwp = ['X', 0, 0, 0, 0, 0, 0, 0]  # TODO UWP Class
+    def generate_size(self):
+        small_gg_uwp = [20, 30, 40, 50, 60, 60, 70, 80, 80, 90, 100]
+        large_gg_uwp = [110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 230, 240, "BD"]
+        if self.is_small_gg:
+            roll = self.dice.roll2d6()
+            self.uwp[1] = small_gg_uwp[roll - 2]
+        else:
+            roll = self.dice.rollnd6(3)
+            self.uwp[1] = large_gg_uwp[roll - 3]
+        return
+
+    def generate_diameter(self):
+        flux = self.dice.roll2d6()
+        flux -= 7
+        flux *= 1000
+        if self.uwp[1] != "BD":
+            self.diameter = self.uwp[1] * 1000
+            self.diameter += flux
+            return
+        else:
+            print("IS BROWN DWARF") #TODO Support for Brown Dwarf
+            return
+
+    def generate_density(self):
+        gg_density = [0.10, 0.11, 0.12, 0.13, 0.14, 0.16, 0.18, 0.20, 0.22, 0.23, 0.24, 0.26, 0.27, 0.28, 0.29, 0.30]
+        self.density = gg_density[self.dice.rollnd6(3)-3]
+        if self.density < 0.15:
+            self.core = "No Solid Core"
+        elif 0.15 <= self.density <= 0.25:
+            self.core = "Frozen Gas Core"
+        elif self.density > 0.25:
+            self.core = "Solid Rocky Core"
+        return
+
+    def generate_mass(self):
+        uwp_calc = self.uwp[1] / 8
+        uwp_calc ^= 3
+        self.mass = self.density * uwp_calc
+        return
+
+    def generate_gravity(self):
+        uwp_calc = (self.uwp[1]) ^ 2
+        uwp_calc = 64 / uwp_calc
+        self.gravity = self.mass * uwp_calc
+        return
+
+    def generate_size_data(self):
+        self.generate_size()
+        self.generate_diameter()
+        self.generate_density()
+        self.generate_mass()
+        self.generate_gravity()
+        return
+
 
