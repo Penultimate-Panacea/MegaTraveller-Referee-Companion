@@ -1,4 +1,5 @@
-import random
+from random import seed
+from random import randint
 
 
 class DiceRoller:
@@ -33,16 +34,16 @@ class DiceRoller:
 
     """
     def __init__(self, unique_seed):
-        random.seed(unique_seed, 2)
+        seed(unique_seed, 2)
 
     @staticmethod
     def roll_1d6():
-        roll = random.randint(1, 6)
+        roll = randint(1, 6)
         return roll
 
     @staticmethod
     def roll_1d3():
-        roll = random.randint(1, 6) % 3
+        roll = randint(1, 6) % 3
         return roll
 
     def roll_2d6(self):
