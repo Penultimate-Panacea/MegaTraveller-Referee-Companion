@@ -35,11 +35,13 @@ class DiceRoller:
     def __init__(self, unique_seed):
         random.seed(unique_seed, 2)
 
-    def roll_1d6(self):
+    @staticmethod
+    def roll_1d6():
         roll = random.randint(1, 6)
         return roll
 
-    def roll_1d3(self):
+    @staticmethod
+    def roll_1d3():
         roll = random.randint(1, 6) % 3
         return roll
 
