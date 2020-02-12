@@ -1,17 +1,17 @@
-import DiceRoller
+import diceroller
 
 
 class PlanetSize:
     def __init__(self, seed, uwp=None):
         if uwp is None:
-            self.uwp = ['X', 0, 0, 0, 0, 0, 0, 0] #TODO UWP Class
-        self.dice = DiceRoller(seed)
+            self.uwp = ['X', 0, 0, 0, 0, 0, 0, 0]  # TODO UWP Class
+        self.dice = diceroller(seed)
         self.diameter = None
         self.density = None
         self.core = None
         self.mass = None
         self.gravity = None
-        self.is_outer_orbit = False #TODO Inherit Orbit data or create setter function
+        self.is_outer_orbit = False  # TODO Inherit Orbit data or create setter function
 
     def generate_diameter(self):
         flux = self.dice.roll2d6() - 7
@@ -30,7 +30,7 @@ class PlanetSize:
         if self.uwp[2] <= 3:
             dice_mods += 1
         if self.uwp[2] >= 6:
-            dice_mods -=2
+            dice_mods -= 2
         if self.is_outer_orbit:
             dice_mods += 6
         density_roll = self.dice.roll2d6() + dice_mods
@@ -85,17 +85,18 @@ class PlanetSize:
         self.generate_gravity()
 
 
-class GasGiantSize: #TODO inherentice from PlanetSize
-    def __init__(self, seed, uwp = None):
+class GasGiantSize:  # TODO inherentice from PlanetSize
+    def __init__(self, seed, uwp=None):
         self.is_small_gg = False
         self.diameter = None
         self.density = None
         self.mass = None
         self.core = None
         self.gravity = None
-        self.dice = DiceRoller(seed)
+        self.dice = diceroller(seed)
         if uwp is None:
             self.uwp = ['X', 0, 0, 0, 0, 0, 0, 0]  # TODO UWP Class
+
     def generate_size(self):
         small_gg_uwp = [20, 30, 40, 50, 60, 60, 70, 80, 80, 90, 100]
         large_gg_uwp = [110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 230, 240, "BD"]
@@ -116,12 +117,12 @@ class GasGiantSize: #TODO inherentice from PlanetSize
             self.diameter += flux
             return
         else:
-            print("IS BROWN DWARF") #TODO Support for Brown Dwarf
+            print("IS BROWN DWARF")  # TODO Support for Brown Dwarf
             return
 
     def generate_density(self):
         gg_density = [0.10, 0.11, 0.12, 0.13, 0.14, 0.16, 0.18, 0.20, 0.22, 0.23, 0.24, 0.26, 0.27, 0.28, 0.29, 0.30]
-        self.density = gg_density[self.dice.rollnd6(3)-3]
+        self.density = gg_density[self.dice.rollnd6(3) - 3]
         if self.density < 0.15:
             self.core = "No Solid Core"
         elif 0.15 <= self.density <= 0.25:
@@ -149,5 +150,3 @@ class GasGiantSize: #TODO inherentice from PlanetSize
         self.generate_mass()
         self.generate_gravity()
         return
-
-

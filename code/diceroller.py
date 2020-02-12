@@ -50,7 +50,7 @@ class DiceRoller:
         return roll
 
     @staticmethod
-    def roll_d00(self):
+    def roll_d00():
         result1 = randint(1, 10)
         result2 = randint(1, 10)
         roll = int(f"{result1}{result2}")
