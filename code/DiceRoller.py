@@ -29,7 +29,10 @@ class DiceRoller:
         Rolls a d6 n times and adds the results together
 
     roll_d66()
-        Rolls a d66 and returns the result as a list with two items
+        Rolls a d66 and returns the result as a single int
+
+    roll_d00()
+        Rolls a d00 and returns the result as a single int
 
 
     """
@@ -44,6 +47,13 @@ class DiceRoller:
     @staticmethod
     def roll_1d3():
         roll = randint(1, 6) % 3
+        return roll
+
+    @staticmethod
+    def roll_d00(self):
+        result1 = randint(1, 10)
+        result2 = randint(1, 10)
+        roll = int(f"{result1}{result2}")
         return roll
 
     def roll_2d6(self):
@@ -63,6 +73,6 @@ class DiceRoller:
     def roll_d66(self):
         result1 = self.roll_1d6()
         result2 = self.roll_1d6()
-        roll = [result1, result2]
+        roll = int(f"{result1}{result2}")
         return roll
 
