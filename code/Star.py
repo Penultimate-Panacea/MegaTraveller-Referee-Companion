@@ -142,8 +142,10 @@ class Star:
             self.orbit_table += str(9)
         elif self.type == "M0" or "M1" or "M2" or "M3" or "M4":
             self.orbit_table += str("A")
-        elif self.type == "M5" or "M6" or "M7" or "M8" or "M9":
+        elif self.type == "M5" or "M6" or "M7" or "M8":
             self.orbit_table += str("B")
+        elif self.type == "M9":
+            self.orbit_table += str("C")
         else:
             print("Invalid Star Type")
         return
