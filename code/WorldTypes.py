@@ -7,10 +7,7 @@ class Planet:
         self.govt_details = None
         self.lawl_details = None
         self.name = None
-        self.sector = None
-        self.coord = None
-        self.orbit = None
-        self.star = None
+
 
 
 class GasGiant:
@@ -22,9 +19,5 @@ class GasGiant:
         self.govt_details = None
         self.lawl_details = None
         self.name = None
-        self.sector = None
-        self.coord = None
-        self.orbit = None
-        self.star = None
 
 
