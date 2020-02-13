@@ -2,36 +2,88 @@ import diceroller
 
 
 class PlanetSize:
-    def __init__(self, seed, uwp=None):
-        if uwp is None:
-            self.uwp = ['X', 0, 0, 0, 0, 0, 0, 0]  # TODO UWP Class
+    """
+               A class used to roll dice for use in the digital
+
+               ...
+
+               Attributes
+               ----------
+               planet : WorldTypes
+                    The name of the star
+
+                dice : DiceRoller
+                   A set of dice that allows consistent dice rolls. This relies on a set seed which is defined in the class
+                   definition.
+
+                orbit : Orbit
+                    #TODO ORBIT Class
+
+                diameter : int
+                    The diameter of the planet in miles
+
+                density : float
+                    Density of planet in TODO UNIT
+
+                core : str
+                    Type of Core of the planet in TODO UNIT
+
+                mass : int
+                    Mass of the planet in TODO UNIT
+
+                gravity : float
+                    Gravity of the planet in TODO UNIT
+
+               Methods
+               -------
+               generate_diameter()
+                    Generates the diameter of the world based on UWP
+
+                generate_core()
+                    Generates the Core Type of the Planet
+
+                generate_density()
+                    Generates density of planet
+
+                calc_mass()
+                    Determines mass of planet
+
+                calc_gravity()
+                    Determines gravity strength
+
+                create_size_mass()
+                    Omnibus function that calls all other size generation functions
+
+               """
+    def __init__(self, seed, Planet, Orbit):
+        self.planet = Planet
         self.dice = diceroller(seed)
+        self.orbit = Orbit
         self.diameter = None
         self.density = None
         self.core = None
         self.mass = None
         self.gravity = None
-        self.is_outer_orbit = False  # TODO Inherit Orbit data or create setter function
 
     def generate_diameter(self):
         flux = self.dice.roll2d6() - 7
         flux *= 100
-        self.diameter = self.uwp[1] * 1000
+        self.diameter = self.planet.uwp[1] * 1000
         self.diameter += flux
         self.diameter += self.dice.rolld00()
         return
 
     def generate_core(self):
         dice_mods = 0
-        if self.uwp[1] <= 4:
+        if self.planet.uwp[1] <= 4:
             dice_mods += 1
-        if self.uwp[1] >= 6:
+        if self.planet.uwp[1] >= 6:
             dice_mods -= 2
-        if self.uwp[2] <= 3:
+        if self.planet.uwp[2] <= 3:
             dice_mods += 1
-        if self.uwp[2] >= 6:
+        if self.planet.uwp[2] >= 6:
             dice_mods -= 2
-        if self.is_outer_orbit:
+        if self.Orbit.is_outer:
             dice_mods += 6
         density_roll = self.dice.roll2d6() + dice_mods
         if density_roll >= 1:
@@ -67,13 +119,13 @@ class PlanetSize:
             return
 
     def generate_mass(self):
-        uwp_calc = self.uwp[1] / 8
+        uwp_calc = self.planet.uwp[1] / 8
         uwp_calc ^= 3
         self.mass = self.density * uwp_calc
         return
 
     def generate_gravity(self):
-        uwp_calc = (self.uwp[1]) ^ 2
+        uwp_calc = (self.planet.uwp[1]) ^ 2
         uwp_calc = 64 / uwp_calc
         self.gravity = self.mass * uwp_calc
 
@@ -95,7 +147,7 @@ class GasGiantSize:  # TODO inherentice from PlanetSize
         self.gravity = None
         self.dice = diceroller(seed)
         if uwp is None:
-            self.uwp = ['X', 0, 0, 0, 0, 0, 0, 0]  # TODO UWP Class
+            self.uwp = ['X', 0, 0, 0, 0, 0, 0, 0]
 
     def generate_size(self):
         small_gg_uwp = [20, 30, 40, 50, 60, 60, 70, 80, 80, 90, 100]
@@ -131,22 +183,22 @@ class GasGiantSize:  # TODO inherentice from PlanetSize
             self.core = "Solid Rocky Core"
         return
 
-    def generate_mass(self):
+    def calc_mass(self):
         uwp_calc = self.uwp[1] / 8
         uwp_calc ^= 3
         self.mass = self.density * uwp_calc
         return
 
-    def generate_gravity(self):
+    def calc_gravity(self):
         uwp_calc = (self.uwp[1]) ^ 2
         uwp_calc = 64 / uwp_calc
         self.gravity = self.mass * uwp_calc
         return
 
-    def generate_size_data(self):
+    def create_size_data(self):
         self.generate_size()
         self.generate_diameter()
         self.generate_density()
-        self.generate_mass()
-        self.generate_gravity()
+        self.calc_mass()
+        self.calc_gravity()
         return
