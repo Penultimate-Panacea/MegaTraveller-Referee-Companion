@@ -87,10 +87,7 @@ class Star:
     def generate_decimal(self):
         decimal = self.dice.roll2d6() - 2
         self.type = self.type + str(decimal)
-
-        else:
-            print ("INVALID DECIMAL GEN")
-            return
+        return
 
     def verify_star_size(self):
         if self.type[0] == 'K' and self.type[1] > 4 and self.size == "IV":
