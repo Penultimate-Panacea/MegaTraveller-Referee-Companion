@@ -51,7 +51,7 @@ class PlanetSize:
                 calc_gravity()
                     Determines gravity strength
 
-                create_size_mass()
+                create_size_data()
                     Omnibus function that calls all other size generation functions
 
                """
