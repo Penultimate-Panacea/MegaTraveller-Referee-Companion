@@ -1,5 +1,6 @@
 class Planet:
     def __init__(self):
+        self.uwp = ["X", 0, 0, 0, 0, 0, 0]  # default
         self.size_details = None
         self.atmo_details = None
         self.hydr_details = None
