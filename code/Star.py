@@ -21,7 +21,7 @@ class Star:
                A set of dice that allows consistent dice rolls. This relies on a set seed which is defined in the class
                definition.
 
-            orbit_table : Orbit
+            orbit_table : list of Orbit
                 #TODO ORBIT Class
 
             is_companion : bool
