@@ -93,10 +93,14 @@ class Star:
             return
 
     def verify_star_size(self):
-        if self.type[0] == 'K' and self.type[1] < 4 and self.size == "IV":
+        if self.type[0] == 'K' and self.type[1] > 4 and self.size == "IV":
             self.size = "V"
         elif self.type[0] == 'M' and self.size == "IV":
             self.size = "V"
+        elif self.type[0] == 'A' or 'F' or 'G' and self.size == "II" or "III":
+            self.size = "V"
+        else:
+            print("Invalid Star Type")
         return
 
     def determine_orbit_table(self):
