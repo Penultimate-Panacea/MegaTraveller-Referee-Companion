@@ -1,7 +1,5 @@
 import diceroller
 
-stellar_orbit_tables = {}
-
 
 class Star:
     """
@@ -24,8 +22,8 @@ class Star:
                A set of dice that allows consistent dice rolls. This relies on a set seed which is defined in the class
                definition.
 
-            orbit_table : str
-                Returns index of orbit table
+            orbit_table : list
+                Reference for orbit table in Orbits -> OrbitTable -> master_table
 
 
             is_companion : bool
@@ -84,6 +82,7 @@ class Star:
             print("INVALID SIZE ROLL")
         self.generate_decimal()
         self.verify_star_size()
+        self.determine_orbit_table()
         return
 
     def generate_decimal(self):
@@ -151,3 +150,4 @@ class Star:
         else:
             print("Invalid Star Type")
         return
+
