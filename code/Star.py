@@ -85,19 +85,9 @@ class Star:
         return
 
     def generate_decimal(self):
-        a = self.dice.roll1d6()
-        if a % 2 == 0:
-            b = 5
-            while b == 5:
-                b = self.dice.roll1d6() - 1
-            self.type = self.type + str(b)
-            return
-        elif a % 2 == 1:
-            b = 10
-            while b == 10:
-                b = self.dice.roll1d6 + 4
-            self.type = self.type + str(b)
-            return
+        decimal = self.dice.roll2d6() - 2
+        self.type = self.type + str(decimal)
+
         else:
             print ("INVALID DECIMAL GEN")
             return
