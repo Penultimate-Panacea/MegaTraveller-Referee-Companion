@@ -1,5 +1,7 @@
 import diceroller
 
+stellar_orbit_tables = {}
+
 class Star:
     """
            A class used to roll dice for use in the digital
@@ -21,8 +23,9 @@ class Star:
                A set of dice that allows consistent dice rolls. This relies on a set seed which is defined in the class
                definition.
 
-            orbit_table : list of Orbit
-                #TODO ORBIT Class
+            orbit_table : str
+                Returns index of orbit table
+
 
             is_companion : bool
                 Is the Star a companion
@@ -106,5 +109,25 @@ class Star:
             self.size = "V"
         return
 
-
+    def determine_orbit_table(self):
+        self.orbit_table = ""
+        if self.size == "Ia":
+            self.orbit_table += str(0)
+        elif self.size == "Ib":
+            self.orbit_table = str(1)
+        elif self.size == "II":
+            self.orbit_table = str(2)
+        elif self.size == "III":
+            self.orbit_table = str(3)
+        elif self.size == "IV":
+            self.orbit_table = str(4)
+        elif self.size == "V":
+            self.orbit_table = str(5)
+        elif self.size == "VI":
+            self.orbit_table = str(6)
+        elif self.size == "D":
+            self.orbit_table = str(7)
+        else:
+            print("Invalid Star Size")
+            return
 
