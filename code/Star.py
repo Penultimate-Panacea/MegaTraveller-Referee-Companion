@@ -103,51 +103,51 @@ class Star:
         return
 
     def determine_orbit_table(self):
-        self.orbit_table = ""
+        self.orbit_table = []
         if self.size == "Ia":
-            self.orbit_table += str(0)
+            self.orbit_table[0] = 0
         elif self.size == "Ib":
-            self.orbit_table = str(1)
+            self.orbit_table[0] = 1
         elif self.size == "II":
-            self.orbit_table = str(2)
+            self.orbit_table[0] = 2
         elif self.size == "III":
-            self.orbit_table = str(3)
+            self.orbit_table[0] = 3
         elif self.size == "IV":
-            self.orbit_table = str(4)
+            self.orbit_table[0] = 4
         elif self.size == "V":
-            self.orbit_table = str(5)
+            self.orbit_table[0] = 5
         elif self.size == "VI":
-            self.orbit_table = str(6)
+            self.orbit_table[0] = 6
         elif self.size == "D":
-            self.orbit_table = str(7)
+            self.orbit_table[0] = 7
         else:
             print("Invalid Star Size")
         if self.type == "B0" or "B1" or "B2" or "B3" or "B4":
-            self.orbit_table += str(0)
+            self.orbit_table[1] = 0
         elif self.type == "B5" or "B6" or "B7" or "B8" or "B9":
-            self.orbit_table += str(1)
+            self.orbit_table[1] = 1
         elif self.type == "A0" or "A1" or "A2" or "A3" or "A4":
-            self.orbit_table += str(2)
+            self.orbit_table[1] = 2
         elif self.type == "A5" or "A6" or "A7" or "A8" or "A9":
-            self.orbit_table += str(3)
+            self.orbit_table[1] = 3
         elif self.type == "F0" or "F1" or "F2" or "F3" or "F4":
-            self.orbit_table += str(4)
+            self.orbit_table[1] = 4
         elif self.type == "F5" or "F6" or "F7" or "F8" or "F9":
-            self.orbit_table += str(5)
+            self.orbit_table[1] = 5
         elif self.type == "G0" or "G1" or "G2" or "G3" or "G4":
-            self.orbit_table += str(6)
+            self.orbit_table[1] = 6
         elif self.type == "G5" or "G6" or "G7" or "G8" or "G9":
-            self.orbit_table += str(7)
+            self.orbit_table[1] = 7
         elif self.type == "K0" or "K1" or "K2" or "K3" or "K4":
-            self.orbit_table += str(8)
+            self.orbit_table[1] = 8
         elif self.type == "K5" or "K6" or "K7" or "K8" or "K9":
-            self.orbit_table += str(9)
+            self.orbit_table[1] = 9
         elif self.type == "M0" or "M1" or "M2" or "M3" or "M4":
-            self.orbit_table += str("A")
+            self.orbit_table[1] = 10
         elif self.type == "M5" or "M6" or "M7" or "M8":
-            self.orbit_table += str("B")
+            self.orbit_table[1] = 11
         elif self.type == "M9":
-            self.orbit_table += str("C")
+            self.orbit_table[1] = 12
         else:
             print("Invalid Star Type")
         return
