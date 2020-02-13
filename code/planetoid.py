@@ -12,7 +12,6 @@ class Planetoid:
         self.name = None
 
 
-
 class PlanetoidBelt:
     """
     A class used to store data about Planetoid Belts
@@ -178,4 +177,3 @@ class PlanetoidBelt:
         beltstring += "n-" + self.composition[0] + " m-" + self.composition[1] + " c-" + self.composition[2] + ", "
         beltstring += self.width + "AU"
         return beltstring
-

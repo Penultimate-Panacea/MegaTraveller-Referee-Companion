@@ -13,8 +13,8 @@ class PlanetSize:
                     The name of the star
 
                 dice : DiceRoller
-                   A set of dice that allows consistent dice rolls. This relies on a set seed which is defined in the class
-                   definition.
+                   A set of dice that allows consistent dice rolls. This relies on a set seed which is defined in the
+                    class definition.
 
                 orbit : Orbit
                     #TODO ORBIT Class
@@ -55,10 +55,10 @@ class PlanetSize:
                     Omnibus function that calls all other size generation functions
 
                """
-    def __init__(self, seed, Planet, Orbit):
-        self.planet = Planet
+    def __init__(self, seed, planet, orbit):
+        self.planet = planet
         self.dice = diceroller(seed)
-        self.orbit = Orbit
+        self.orbit = orbit
         self.diameter = None
         self.density = None
         self.core = None

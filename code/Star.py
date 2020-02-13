@@ -2,6 +2,7 @@ import diceroller
 
 stellar_orbit_tables = {}
 
+
 class Star:
     """
            A class used to roll dice for use in the digital
@@ -43,6 +44,7 @@ class Star:
                 Confirms that star type is a valid for star size, if not corrects star size
 
            """
+
     def __init__(self, seed):
         self.name = seed
         self.type = None
@@ -51,7 +53,7 @@ class Star:
         self.orbit_table = None
         self.is_companion = False
 
-    def create_star(self, dice_mod = 0):
+    def create_star(self, dice_mod=0):
         type_roll = self.dice.roll_2d6() + dice_mod
         size_roll = self.dice.roll_2d6() + dice_mod
         if type_roll == 2:
@@ -149,4 +151,3 @@ class Star:
         else:
             print("Invalid Star Type")
         return
-

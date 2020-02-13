@@ -10,7 +10,6 @@ class Planet:
         self.name = None
 
 
-
 class GasGiant:
     def __init__(self):
         self.size_details = None
@@ -20,5 +19,3 @@ class GasGiant:
         self.govt_details = None
         self.lawl_details = None
         self.name = None
-
-
