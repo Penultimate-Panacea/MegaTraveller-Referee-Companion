@@ -21,7 +21,7 @@ class Planet:
         mature_starport = ['A', 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'E', 'E', 'E']
         cluster_starport = ['A', 'A', 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'E', 'X']
         starport_roll = self.dice.roll2d6() - 2
-        self.uwp[0] = standard_starport[starport_roll] # TODO autoselect of starport table
+        self.uwp[0] = standard_starport[starport_roll]  # TODO autoselect of starport table
         self.uwp[1] = self.dice.roll2d6() - 2
         if self.uwp[1] == 0:
             self.uwp[2] = 0
@@ -72,6 +72,7 @@ class Planet:
             dice_mods += -2
         tech_level = self.dice.roll1d6() + dice_mods
         return tech_level
+
 
 class GasGiant:
     def __init__(self):
