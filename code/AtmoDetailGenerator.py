@@ -5,7 +5,7 @@ class AtmoDetailGenerator:
     def __init__(self, planet, seed, orbit, star, orbit_zone):
         self.planet = planet
         self.dice = diceroller(seed)
-        self.orbit = orbit #  just the number
+        self.orbit = orbit  # just the number
         self.orbit_zone = orbit_zone
         self.star = star
         self.composition = None
@@ -23,15 +23,15 @@ class AtmoDetailGenerator:
                    ("Thin", "Irritant"), ("Standard", "Non-Irritant"), ("Standard", "Irritant"),
                    ("Dense", "Non-Irritant"), ("Dense", "Irritant"), ("Very Dense", "Non-Irritant"),
                    ("Very Dense", "Irritant"), ("Occasional Corrosive", "Occasional Corrosive")]
-        ctr = [(-273, -100), (-100, -25), (-25, 50), (50, 100), (-200, -25), (100, 600)] #  Corrosive Temperature Range
+        ctr = [(-273, -100), (-100, -25), (-25, 50), (50, 100), (-200, -25), (100, 600)]  # Corrosive Temperature Range
         corrosives = [("Trace", ctr[0]), ("Very Thin", ctr[1]), ("Very Thin", ctr[2]), ("Very Thin", ctr[3]),
                       ("Normal", ctr[4]), ("Normal", ctr[2]), ("Normal", ctr[3]), ("Very Dense", ctr[4]),
                       ("Very Dense", ctr[3]), ("Very Dense", ctr[5])]
         insidious = ["Gas Mix", "Gas Mix", "Radiation", "Temperature", "Pressure", "Gas Mix", "Pressure", "Temperature",
-                     "Radiation", "Gas Mix", "Gas Mix"] # TODO replace GAS MIX with different mixes of gases
+                     "Radiation", "Gas Mix", "Gas Mix"]  # TODO replace GAS MIX with different mixes of gases
         comp_roll = self.dice.roll2d6() - 2
         if self.planet.uwp[2] == 2 or 4 or 7 or 9:
-           self.composition = taints[comp_roll]
+            self.composition = taints[comp_roll]
         elif self.planet.uwp[2] == 10:
             self.composition = exotics[comp_roll]
         elif self.planet.uwp[2] == 11:
@@ -63,10 +63,10 @@ class AtmoDetailGenerator:
         v_thin = [0.10, 0.12, 0.14, 0.16, 0.18, 0.20, 0.23, 0.25, 0.30, 0.35, 0.40]
         thin = [0.43, 0.45, 0.48, 0.50, 0.50, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75]
         stand = [0.76, 0.80, 0.85, 0.90, 0.95, 1.00, 1.00, 1.10, 1.20, 1.30, 1.40]
-        dense = [1.50, 1.60, 1.70, 1.80, 1.90, 2.00, 2.00, 2.20, 2,20, 2.40, 2.40]
+        dense = [1.50, 1.60, 1.70, 1.80, 1.90, 2.00, 2.00, 2.20, 2, 20, 2.40, 2.40]
         v_dense = [2.50, 5.00, 10.00, 25.00, 50.00, 100.00, 150.00, 200.00, 250.00, 500.00, 750.00]
         if self.planet.uwp[2] == 10 or 11 or 12:
-            wac = self.convert_exceptional_atmospheres() #  Working Atmosphere Code
+            wac = self.convert_exceptional_atmospheres()  # Working Atmosphere Code
         else:
             wac = self.planet.uwp[2]
         pressure_roll = self.dice.roll2d6() - 2
@@ -90,7 +90,7 @@ class AtmoDetailGenerator:
 
     def find_size_grou(self):
         if self.star.type ==
-        return size_group
+            return size_group
 
     def calc_luminosity(self):
         Ia_schedule = [27.36, 21.25, 18.09, 16.87, 15.75, 15.03, 16.09, 17.27, 17.65, 18.09, 18.49, 18.95, 19.38]
@@ -102,7 +102,7 @@ class AtmoDetailGenerator:
         V_schedule = [15.38, 06.12, 03.08, 02.00, 01.69, 01.37, 01.05, 00.90, 00.81, 00.53, 00.45, 00.29, 00.18]
         VI_schedule = [99999, 99999, 99999, 99999, 99999, 00.99, 00.75, 00.66, 00.58, 00.40, 00.32, 00.21, 00.09]
         #  First five values above are placeholder for non existent value, set ludicrously large for debugging
-        D_schedule = {'B':0.46, 'A':0.27, 'F':0.13, 'G':0.09, 'K':0.08, 'M':0.07}
+        D_schedule = {'B': 0.46, 'A': 0.27, 'F': 0.13, 'G': 0.09, 'K': 0.08, 'M': 0.07}
 
         if self.star.size == 'Ia':
             luminosity = Ia_schedule[self.star.orbit_table[1]]
@@ -145,7 +145,7 @@ class AtmoDetailGenerator:
             if self.planet.uwp[2] == 0 or 1 or 2 or 3:
                 asorbtion = hab_thin[self.planet.uwp[3]]
                 return asorbtion
-            elif self.planet.uwp[2] == 4 or 5 or 6  or 7 or 8 or 9:
+            elif self.planet.uwp[2] == 4 or 5 or 6 or 7 or 8 or 9:
                 asorbtion = hab_stdense[self.planet.uwp[3]]
                 return asorbtion
             elif self.planet.uwp[2] == 10 or 11 or 12 or 13 or 15:
@@ -158,7 +158,7 @@ class AtmoDetailGenerator:
             if self.planet.uwp[2] == 0 or 1 or 2 or 3:
                 asorbtion = nohab_thin[self.planet.uwp[3]]
                 return asorbtion
-            elif self.planet.uwp[2] == 4 or 5 or 6  or 7 or 8 or 9:
+            elif self.planet.uwp[2] == 4 or 5 or 6 or 7 or 8 or 9:
                 asorbtion = nohab_stdense[self.planet.uwp[3]]
                 return asorbtion
             elif self.planet.uwp[2] == 10 or 11 or 12 or 13 or 15:
@@ -174,9 +174,8 @@ class AtmoDetailGenerator:
 
         gg_effect = [1.00, 1.00, 1.00, 1.00, 1.05, 1.05, 1.10, 1.10, 1.15, 1.15, self.generate_ge(), self.generate_ge(),
                      self.generate_ge(), 1.15, 1.10, 1.00]
-        self.avg_temperature = orbit_factor[self.orbit] * self.calc_luminosity() * self.calculate_asorbtion() *\
+        self.avg_temperature = orbit_factor[self.orbit] * self.calc_luminosity() * self.calculate_asorbtion() * \
                                gg_effect[self.planet.uwp[2]]
-
 
     def generate_ge(self):
         a = [1.2, 1.2, 1.3, 1.3, 1.4, 1.4, 1.5, 1.5, 1.6, 1.6, 1.7]
@@ -185,4 +184,31 @@ class AtmoDetailGenerator:
         if self.pressure.uwp[2] == 10:
             return a[gg_roll]
         elif self.planet.uwp[2] == 10 or 11:
-            return  b[gg_roll]
+            return b[gg_roll]
+
+    def generate_native_life(self):
+        dice_mods = 0
+        if self.planet.uwp[2] == 0:
+            dice_mods -= 3
+        elif self.planet.uwp[2] == 4 or 5 or 6 or 7 or 8 or 9:
+            dice_mods += 4
+        elif self.planet.uwp[3] == 90:
+            dice_mods -= 2
+        elif self.planet.uwp[3] == 2 or 3 or 4 or 5 or 6 or 7 or 8:
+            dice_mods += 1
+        elif self.avg_temperature <= 253:
+            dice_mods -= 1
+        elif self.avg_temperature >= 303:
+            dice_mods -=1
+        elif self.star.type[0] == "G" or "K":
+            dice_mods += 1
+        elif self.star.type[0] == "F" or "A" or "B":
+            dice_mods -= 1
+        life_roll = self.dice.roll2d6() + dice_mods
+        if life_roll > 9:
+            self.native_life = True
+        else:
+            self.native_life = False
+        return
+
+
