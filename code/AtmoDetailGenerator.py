@@ -93,40 +93,40 @@ class AtmoDetailGenerator:
             return size_group
 
     def calc_luminosity(self):
-        Ia_schedule = [27.36, 21.25, 18.09, 16.87, 15.75, 15.03, 16.09, 17.27, 17.65, 18.09, 18.49, 18.95, 19.38]
-        Ib_schedule = [22.80, 14.70, 11.07, 10.40, 09.27, 08.45, 08.84, 09.49, 10.40, 11.95, 14.65, 17.27, 18.49]
-        II_schedule = [20.31, 11.68, 06.85, 05.40, 04.95, 04.75, 04.86, 05.22, 05.46, 07.04, 08.24, 11.05, 11.28]
-        III_schedule = [18.09, 09.05, 04.09, 03.08, 02.70, 02.56, 02.66, 02.94, 03.12, 04.23, 04.66, 06.91, 07.20]
-        IV_schedule = [16.87, 06.69, 03.53, 02.47, 02.09, 01.86, 01.60, 01.49, 01.47, 99999, 99999, 99999, 99999]
+        ia_schedule = [27.36, 21.25, 18.09, 16.87, 15.75, 15.03, 16.09, 17.27, 17.65, 18.09, 18.49, 18.95, 19.38]
+        ib_schedule = [22.80, 14.70, 11.07, 10.40, 09.27, 08.45, 08.84, 09.49, 10.40, 11.95, 14.65, 17.27, 18.49]
+        ii_schedule = [20.31, 11.68, 06.85, 05.40, 04.95, 04.75, 04.86, 05.22, 05.46, 07.04, 08.24, 11.05, 11.28]
+        iii_schedule = [18.09, 09.05, 04.09, 03.08, 02.70, 02.56, 02.66, 02.94, 03.12, 04.23, 04.66, 06.91, 07.20]
+        iv_schedule = [16.87, 06.69, 03.53, 02.47, 02.09, 01.86, 01.60, 01.49, 01.47, 99999, 99999, 99999, 99999]
         #  Final four values above are placeholder for non existent value, set ludicrously large for debugging
-        V_schedule = [15.38, 06.12, 03.08, 02.00, 01.69, 01.37, 01.05, 00.90, 00.81, 00.53, 00.45, 00.29, 00.18]
-        VI_schedule = [99999, 99999, 99999, 99999, 99999, 00.99, 00.75, 00.66, 00.58, 00.40, 00.32, 00.21, 00.09]
+        v_schedule = [15.38, 06.12, 03.08, 02.00, 01.69, 01.37, 01.05, 00.90, 00.81, 00.53, 00.45, 00.29, 00.18]
+        vi_schedule = [99999, 99999, 99999, 99999, 99999, 00.99, 00.75, 00.66, 00.58, 00.40, 00.32, 00.21, 00.09]
         #  First five values above are placeholder for non existent value, set ludicrously large for debugging
-        D_schedule = {'B': 0.46, 'A': 0.27, 'F': 0.13, 'G': 0.09, 'K': 0.08, 'M': 0.07}
+        d_schedule = {'B': 0.46, 'A': 0.27, 'F': 0.13, 'G': 0.09, 'K': 0.08, 'M': 0.07}
 
         if self.star.size == 'Ia':
-            luminosity = Ia_schedule[self.star.orbit_table[1]]
+            luminosity = ia_schedule[self.star.orbit_table[1]]
             return luminosity
         elif self.star.size == 'Ib':
-            luminosity = Ib_schedule[self.star.orbit_table[1]]
+            luminosity = ib_schedule[self.star.orbit_table[1]]
             return luminosity
         elif self.star.size == 'II':
-            luminosity = II_schedule[self.star.orbit_table[1]]
+            luminosity = ii_schedule[self.star.orbit_table[1]]
             return luminosity
         elif self.star.size == 'III':
-            luminosity = III_schedule[self.star.orbit_table[1]]
+            luminosity = iii_schedule[self.star.orbit_table[1]]
             return luminosity
         elif self.star.size == 'IV':
-            luminosity = IV_schedule[self.star.orbit_table[1]]
+            luminosity = iv_schedule[self.star.orbit_table[1]]
             return luminosity
         elif self.star.size == 'V':
-            luminosity = V_schedule[self.star.orbit_table[1]]
+            luminosity = v_schedule[self.star.orbit_table[1]]
             return luminosity
         elif self.star.size == 'VI':
-            luminosity = VI_schedule[self.star.orbit_table[1]]
+            luminosity = vi_schedule[self.star.orbit_table[1]]
             return luminosity
         elif self.star.size == "D"
-            luminosity = D_schedule[self.star.type]
+            luminosity = d_schedule[self.star.type]
             return luminosity
         else:
             print("Luminosity Calc has gone wrong")
@@ -139,8 +139,8 @@ class AtmoDetailGenerator:
         nohab_stdense = [0.800, 0.811, 0.789, 0.799, 0.774, 0.747, 0.718, 0.687, 0.654, 0.619, 0.619]
         hab_special = [0.740, 0.697, 0.672, 0.676, 0.648, 0.613, 0.577, 0.539, 0.500, 0.500, 0.500]
         nohab_special = [0.680, 0.646, 0.635, 0.644, 0.625, 0.599, 0.570, 0.537, 0.500, 0.500, 0.500]
-        hab_E = [0.900, 0.900, 0.882, 0.883, 0.866, 0.850, 0.836, 0.821, 0.807, 0.793, 0.773]
-        nohab_E = [0.800, 0.811, 0.807, 0.817, 0.813, 0.809, 0.805, 0.800, 0.794, 0.787, 0.773]
+        hab_e = [0.900, 0.900, 0.882, 0.883, 0.866, 0.850, 0.836, 0.821, 0.807, 0.793, 0.773]
+        nohab_e = [0.800, 0.811, 0.807, 0.817, 0.813, 0.809, 0.805, 0.800, 0.794, 0.787, 0.773]
         if self.orbit_zone == "H":
             if self.planet.uwp[2] == 0 or 1 or 2 or 3:
                 asorbtion = hab_thin[self.planet.uwp[3]]
@@ -152,7 +152,7 @@ class AtmoDetailGenerator:
                 asorbtion = hab_special[self.planet.uwp[3]]
                 return asorbtion
             elif self.planet.uwp[2] == 14:
-                asorbtion = hab_E[self.planet.uwp[3]]
+                asorbtion = hab_e[self.planet.uwp[3]]
                 return asorbtion
         else:
             if self.planet.uwp[2] == 0 or 1 or 2 or 3:
@@ -165,7 +165,7 @@ class AtmoDetailGenerator:
                 asorbtion = nohab_special[self.planet.uwp[3]]
                 return asorbtion
             elif self.planet.uwp[2] == 14:
-                asorbtion = nohab_E[self.planet.uwp[3]]
+                asorbtion = nohab_e[self.planet.uwp[3]]
                 return asorbtion
 
     def calculate_surface_temperature(self):
@@ -199,7 +199,7 @@ class AtmoDetailGenerator:
         elif self.avg_temperature <= 253:
             dice_mods -= 1
         elif self.avg_temperature >= 303:
-            dice_mods -=1
+            dice_mods -= 1
         elif self.star.type[0] == "G" or "K":
             dice_mods += 1
         elif self.star.type[0] == "F" or "A" or "B":
@@ -222,7 +222,7 @@ class AtmoDetailGenerator:
         elif self.planet.uwp[1] == 3 or 4:
             atmo_score += 1
             green_score += 1
-            albedo_score +=1
+            albedo_score += 1
         elif self.planet.uwp[1] == 7 or 8:
             atmo_score -= 1
             green_score -= 1
@@ -255,7 +255,7 @@ class AtmoDetailGenerator:
         elif self.planet.uwp[4] >= 8:
             atmo_score += 1
             green_score += 2
-            albedo_score +=2
+            albedo_score += 2
         if self.planet.uwp[7] <= 4:
             atmo_score -= 10
             green_score -= 10
@@ -294,9 +294,6 @@ class AtmoDetailGenerator:
         if albedo_score > albedo_roll:
             albedo_terra = True
         else:
-            albedo_score = False
+            albedo_terra = False
         terraforming = [atmo_terra, green_terra, albedo_terra]
         return terraforming
-
-
-
