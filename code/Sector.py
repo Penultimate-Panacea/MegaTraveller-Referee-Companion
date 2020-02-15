@@ -1,24 +1,27 @@
 class Sector:
     def __init__(self):
-        self.subsectorA = None
-        self.subsectorB = None
-        self.subsectorC = None
-        self.subsectorD = None
-        self.subsectorE = None
-        self.subsectorF = None
-        self.subsectorG = None
-        self.subsectorH = None
-        self.subsectorI = None
-        self.subsectorJ = None
-        self.subsectorK = None
-        self.subsectorL = None
-        self.subsectorM = None
-        self.subsectorN = None
-        self.subsectorO = None
-        self.subsectorP = None
-        self.name = None
-        self.coreward = None
-        self.spinward = None
-        self.rimward = None
-        self.trailward = None
+        self.subsectorA = None  # Subsector
+        self.subsectorB = None  # Subsector
+        self.subsectorC = None  # Subsector
+        self.subsectorD = None  # Subsector
+        self.subsectorE = None  # Subsector
+        self.subsectorF = None  # Subsector
+        self.subsectorG = None  # Subsector
+        self.subsectorH = None  # Subsector
+        self.subsectorI = None  # Subsector
+        self.subsectorJ = None  # Subsector
+        self.subsectorK = None  # Subsector
+        self.subsectorL = None  # Subsector
+        self.subsectorM = None  # Subsector
+        self.subsectorN = None  # Subsector
+        self.subsectorO = None  # Subsector
+        self.subsectorP = None  # Subsector
+        self.name = None  # String
+        self.coreward = None  # Sector
+        self.spinward = None  # Sector
+        self.rimward = None  # Sector
+        self.trailward = None  # Sector
 
+    def generate_sector(self):
+        #TODO THIS
+        return

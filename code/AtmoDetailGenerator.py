@@ -293,3 +293,4 @@ class AtmoDetailGenerator:
             albedo_terra = False
         terraforming = [atmo_terra, green_terra, albedo_terra]
         return terraforming
+
