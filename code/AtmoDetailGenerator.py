@@ -174,6 +174,8 @@ class AtmoDetailGenerator:
 
         gg_effect = [1.00, 1.00, 1.00, 1.00, 1.05, 1.05, 1.10, 1.10, 1.15, 1.15, self.generate_ge(), self.generate_ge(),
                      self.generate_ge(), 1.15, 1.10, 1.00]
+        self.avg_temperature = orbit_factor[self.orbit] * self.calc_luminosity() * self.calculate_asorbtion() *\
+                               gg_effect[self.planet.uwp[2]]
 
 
     def generate_ge(self):
