@@ -143,17 +143,40 @@ class AtmoDetailGenerator:
         nohab_E = [0.800, 0.811, 0.807, 0.817, 0.813, 0.809, 0.805, 0.800, 0.794, 0.787, 0.773]
         if self.orbit_zone == "H":
             if self.planet.uwp[2] == 0 or 1 or 2 or 3:
-                asorbtion =
+                asorbtion = hab_thin[self.planet.uwp[3]]
+                return asorbtion
+            elif self.planet.uwp[2] == 4 or 5 or 6  or 7 or 8 or 9:
+                asorbtion = hab_stdense[self.planet.uwp[3]]
+                return asorbtion
+            elif self.planet.uwp[2] == 10 or 11 or 12 or 13 or 15:
+                asorbtion = hab_special[self.planet.uwp[3]]
+                return asorbtion
+            elif self.planet.uwp[2] == 14:
+                asorbtion = hab_E[self.planet.uwp[3]]
+                return asorbtion
+        else:
+            if self.planet.uwp[2] == 0 or 1 or 2 or 3:
+                asorbtion = nohab_thin[self.planet.uwp[3]]
+                return asorbtion
+            elif self.planet.uwp[2] == 4 or 5 or 6  or 7 or 8 or 9:
+                asorbtion = nohab_stdense[self.planet.uwp[3]]
+                return asorbtion
+            elif self.planet.uwp[2] == 10 or 11 or 12 or 13 or 15:
+                asorbtion = nohab_special[self.planet.uwp[3]]
+                return asorbtion
+            elif self.planet.uwp[2] == 14:
+                asorbtion = nohab_E[self.planet.uwp[3]]
+                return asorbtion
 
     def calculate_surface_temperature(self):
         orbit_factor = [836.345, 591.385, 447.045, 274.025, 295.693, 223.523, 164.021, 118.277, 84.484, 60.046, 42.569,
                         30.140, 21.326, 15.085, 10.668, 7.544, 5.335, 3.772, 2.667, 1.886]
 
-        gg_effect = [1.00, 1.00, 1.00, 1.00, 1.05, 1.05, 1.10, 1.10, 1.15, 1.15, self.gg_generate(), self.gg_generate(),
-                     self.gg_generate(), 1.15, 1.10, 1.00]
+        gg_effect = [1.00, 1.00, 1.00, 1.00, 1.05, 1.05, 1.10, 1.10, 1.15, 1.15, self.generate_ge(), self.generate_ge(),
+                     self.generate_ge(), 1.15, 1.10, 1.00]
 
 
-    def gg_generate(self):
+    def generate_ge(self):
         a = [1.2, 1.2, 1.3, 1.3, 1.4, 1.4, 1.5, 1.5, 1.6, 1.6, 1.7]
         b = [1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2]
         gg_roll = self.dice.roll2d6()
