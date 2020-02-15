@@ -5,7 +5,7 @@ class AtmoDetailGenerator:
     def __init__(self, planet, seed, orbit, star):
         self.planet = planet
         self.dice = diceroller(seed)
-        self.orbit = orbit
+        self.orbit = orbit #  just the number
         self.star = star
         self.composition = None
         self.pressure = None
@@ -56,6 +56,7 @@ class AtmoDetailGenerator:
             print("Non Exceptional Atmosphere")
             uwp_equiv = None
         return uwp_equiv
+
     def generate_surface_pressure(self):
         trace = [0.01, 0.05, 0.05, 0.06 0.06, 0.07, 0.07, 0.07, 0.08, 0.08, 0.09]
         v_thin = [0.10, 0.12, 0.14, 0.16, 0.18, 0.20, 0.23, 0.25, 0.30, 0.35, 0.40]
@@ -86,3 +87,13 @@ class AtmoDetailGenerator:
             print("Something has broken in the pressure generator")
         return
 
+    def generate_surface_pressure(self):
+        Ia_schedule = [27.36, 21.25, 18.09, 16.87, 15.75, 15.03, 16.09, 17.27, 17.65, 18.09, 18.49, 18.95, 19.38]
+        Ib_schedule = [22.80, 14.70, 11.07, 10.40, 09.27, 08.45, 08.84, 09.49, 10.40, 11.95, 14.65, 17.27, 18.49]
+        II_schedule = [20.31, 11.68, 06.85, 05.40, 04.95, 04.75, 04.86, 05.22, 05.46, 07.04, 08.24, 11.05, 11.28]
+        III_schedule = [18.09, 09.05, 04.09, 03.08, 02.70, 02.56, 02.66, 02.94, 03.12, 04.23, 04.66, 06.91, 07.20]
+        IV_schedule = [16.87, 06.69, 03.53, 02.47, 02.09, 01.86, 01.60, 01.49, 01.47, 99999, 99999, 99999, 99999]
+        #  Final four values above are placeholder for non existent value, set ludicrously large for debugging
+        V_schedule = [15.38, 06.12, 03.08, 02.00, 01.69, 01.37, 01.05, 00.90, 00.81, 00.53, 00.45, 00.29, 00.18]
+        VI_schedule = [15.38, 06.12, 03.08, 02.00, 01.69, 01.37, 01.05, 00.90, 00.81, 00.53, 00.45, 00.29, 00.18]
+        #  First five values above are placeholder for non existent value, set ludicrously large for debugging
