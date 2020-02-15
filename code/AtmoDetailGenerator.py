@@ -59,7 +59,7 @@ class AtmoDetailGenerator:
         return uwp_equiv
 
     def generate_surface_pressure(self):
-        trace = [0.01, 0.05, 0.05, 0.06 0.06, 0.07, 0.07, 0.07, 0.08, 0.08, 0.09]
+        trace = [0.01, 0.05, 0.05, 0.06, 0.06, 0.07, 0.07, 0.07, 0.08, 0.08, 0.09]
         v_thin = [0.10, 0.12, 0.14, 0.16, 0.18, 0.20, 0.23, 0.25, 0.30, 0.35, 0.40]
         thin = [0.43, 0.45, 0.48, 0.50, 0.50, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75]
         stand = [0.76, 0.80, 0.85, 0.90, 0.95, 1.00, 1.00, 1.10, 1.20, 1.30, 1.40]
@@ -87,10 +87,6 @@ class AtmoDetailGenerator:
         else:
             print("Something has broken in the pressure generator")
         return
-
-    def find_size_grou(self):
-        if self.star.type ==
-            return size_group
 
     def calc_luminosity(self):
         ia_schedule = [27.36, 21.25, 18.09, 16.87, 15.75, 15.03, 16.09, 17.27, 17.65, 18.09, 18.49, 18.95, 19.38]
@@ -125,7 +121,7 @@ class AtmoDetailGenerator:
         elif self.star.size == 'VI':
             luminosity = vi_schedule[self.star.orbit_table[1]]
             return luminosity
-        elif self.star.size == "D"
+        elif self.star.size == "D":
             luminosity = d_schedule[self.star.type]
             return luminosity
         else:
