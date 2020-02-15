@@ -211,4 +211,92 @@ class AtmoDetailGenerator:
             self.native_life = False
         return
 
+    def determine_terraforming(self):
+        atmo_score = 0
+        green_score = 0
+        albedo_score = 0
+        if self.planet.uwp[1] == 1 or 2:
+            atmo_score += 2
+            green_score += 2
+            albedo_score += 2
+        elif self.planet.uwp[1] == 3 or 4:
+            atmo_score += 1
+            green_score += 1
+            albedo_score +=1
+        elif self.planet.uwp[1] == 7 or 8:
+            atmo_score -= 1
+            green_score -= 1
+            albedo_score -= 1
+        elif self.planet.uwp[1] == 9:
+            atmo_score -= 2
+            green_score -= 2
+            albedo_score -= 2
+        if self.planet.uwp[2] == 0:
+            atmo_score -= 5
+            green_score -= 5
+            albedo_score -= 5
+        elif self.planet.uwp[2] == 12:
+            atmo_score -= 5
+            green_score -= 5
+        if self.planet.uwp[3] == 0:
+            atmo_score -= 1
+            green_score += 1
+            albedo_score += 2
+        elif self.planet.uwp[3] == 5 or 6 or 7 or 8 or 9:
+            green_score += 1
+        elif self.planet.uwp[3] == 10:
+            albedo_score += 1
+            atmo_score += 1
+            green_score += 2
+        if self.planet.uwp[4] == 1 or 2 or 3 or 4:
+            atmo_score -= 3
+            green_score -= 2
+            albedo_score -= 2
+        elif self.planet.uwp[4] >= 8:
+            atmo_score += 1
+            green_score += 2
+            albedo_score +=2
+        if self.planet.uwp[7] <= 4:
+            atmo_score -= 10
+            green_score -= 10
+            albedo_score -= 10
+        elif self.planet.uwp[7] == 5 or 6 or 7 or 8:
+            atmo_score -= 1
+            green_score += 1
+            albedo_score += 1
+        elif self.planet.uwp[7] == 9 or 10 or 11:
+            atmo_score += 1
+            green_score += 2
+            albedo_score += 2
+        elif self.planet.uwp[7] >= 12:
+            atmo_score += 2
+            green_score += 2
+            albedo_score += 3
+        if self.native_life:
+            atmo_score -= 4
+            green_score -= 2
+            albedo_score -= 2
+        else:
+            atmo_score += 2
+            green_score += 2
+            albedo_score += 2
+        atmo_roll = self.dice.roll2d6()
+        green_roll = self.dice.roll2d6()
+        albedo_roll = self.dice.roll2d6()
+        if atmo_score > atmo_roll:
+            atmo_terra = True
+        else:
+            atmo_terra = False
+        if green_score > green_roll:
+            green_terra = True
+        else:
+            green_terra = False
+        if albedo_score > albedo_roll:
+            albedo_terra = True
+        else:
+            albedo_score = False
+        terraforming = [atmo_terra, green_terra, albedo_terra]
+        return terraforming
+
+
 
