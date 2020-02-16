@@ -22,3 +22,24 @@ class HydDetailGenerator:
         self.percentage = percent
         return
 
+    def generate_compositon(self):
+        if self.planet.uwp[2] == 3 or 5 or 6 or 8:
+            self.composition = "Water"
+            return
+        elif self.planet.uwp[2] == 2 or 4 or 7 or 9:
+            self.composition = "Tainted Water"
+            return
+        elif self.planet.uwp[2] == 10:
+            if self.dice.roll2d6() > 9:
+                self.composition = "Tainted Liquid Water"
+                return
+            else:
+                self.composition = "Atmosphere Related Chemical Mix"
+                return
+        elif self.planet.uwp[2] == 11 or 12:
+            self.composition = "Atmosphere Related Chemical Mix"
+            return
+        else:
+            self.composition = "Special Case (needs further study)"
+            return
+
