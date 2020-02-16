@@ -105,3 +105,10 @@ class HydDetailGenerator:
         else:
             terra_terra = False
         self.terraforming = [hydro_terra, terra_terra]
+        if hydro_terra:
+            modification = self.dice.roll1d3() + self.dice.roll1d3()
+            if self.planet[3] < 5:
+                self.percentage += modification
+            else:
+                self.percentage -= modification
+        return
