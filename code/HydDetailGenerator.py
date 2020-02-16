@@ -207,5 +207,5 @@ class HydDetailGenerator:
         notable_volcanoes = 0
         if self.planet.uwp[3] == 10:
             max_possible_volcanoes += self.dice.roll1d6()
-        if self.continents [0] == 1:
-            max_possible_volcanoes ++ self.dice.roll1d6() - 1
+        if self.continents[0] == 1:
+            max_possible_volcanoes + + self.dice.roll1d6() - 1

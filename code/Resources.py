@@ -9,6 +9,7 @@ class Resources:
         self.processed = None
         self.manufactured = None
         self.information = None
+
     def generate_processed(self):
         significant_processed = [False, False, False]
         agroproducts_score = 0
@@ -142,6 +143,7 @@ class Resources:
         if compounds_score > compounds_roll:
             significant_natural[4] = True
         return
+
     def generate_manufactured(self):
         significant_manufactured = [False, False, False, False]
         parts_score = 0
@@ -157,7 +159,7 @@ class Resources:
             parts_score -= 1
             durables_score -= 1
             consumables_score -= 1
-            weapons_score  -=
+            weapons_score -=
         elif 5 <= self.planet.uwp[4] <= 8:
             parts_score += 1
             durables_score += 2
@@ -207,7 +209,7 @@ class Resources:
         durables_roll = self.dice.roll2d6()
         consumables_roll = self.dice.roll2d6()
         weapons_roll = self.dice.roll2d6()
-        if parts_score> parts_roll:
+        if parts_score > parts_roll:
             significant_manufactured[0] = True
         if durables_score > durables_roll:
             significant_manufactured[1] = True
@@ -216,6 +218,7 @@ class Resources:
         if weapons_score > weapons_roll:
             significant_manufactured[3] = True
         return
+
     def generate_information(self):
         significant_information = [False, False, False, False]
         recordings_score = 0
@@ -290,4 +293,3 @@ class Resources:
         if documents_score > documents_roll:
             significant_information[3] = True
         return
-
