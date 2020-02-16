@@ -216,5 +216,78 @@ class Resources:
         if weapons_score > weapons_roll:
             significant_manufactured[3] = True
         return
-
+    def generate_information(self):
+        significant_information = [False, False, False, False]
+        recordings_score = 0
+        artforms_score = 0
+        software_score = 0
+        documents_score = 0
+        if 0 <= self.planet.uwp[4] <= 4:
+            documents_score -= 1
+        elif 5 <= self.planet.uwp[4] <= 8:
+            recordings_score += 1
+            artforms_score += 2
+            software_score += 1
+        elif 9 <= self.planet.uwp[4]:
+            recordings_score += 2
+            artforms_score += 3
+            software_score += 4
+            documents_score += 1
+        if 2 <= self.planet.uwp[5] <= 6:
+            recordings_score += 1
+            artforms_score += 1
+            software_score += 1
+            documents_score += 1
+        elif self.planet.uwp[5] == 7:
+            recordings_score += 1
+            artforms_score += 2
+            software_score += 1
+            documents_score += 2
+        elif 8 <= self.planet.uwp[5]:
+            recordings_score += 2
+            software_score += 1
+            documents_score += 4
+        if 3 <= self.planet.uwp[6] <= 6:
+            recordings_score += 1
+            software_score += 1
+            documents_score += 2
+        elif 7 <= self.planet.uwp[6] <= 9:
+            recordings_score += 2
+            software_score += 2
+            documents_score += 4
+        elif 10 <= self.planet.uwp[6]:
+            recordings_score += 3
+            software_score += 3
+            documents_score += 6
+        if 0 <= self.planet.uwp[7] <= 3:
+            recordings_score -= 3
+            artforms_score += 2
+            software_score -= 9
+        elif 4 <= self.planet.uwp[7] <= 6:
+            recordings_score += 1
+            artforms_score += 1
+            documents_score += 1
+        elif 7 <= self.planet.uwp[7] <= 11:
+            recordings_score += 2
+            artforms_score += 1
+            software_score += 1
+            documents_score += 3
+        elif 12 <= self.planet.uwp[7]:
+            recordings_score += 3
+            artforms_score += 1
+            software_score += 4
+            documents_score += 1
+        recordings_roll = self.dice.roll2d6()
+        artforms_roll = self.dice.roll2d6()
+        software_roll = self.dice.roll2d6()
+        documents_roll = self.dice.roll2d6()
+        if recordings_score > recordings_roll:
+            significant_information[0] = True
+        if artforms_score > artforms_roll:
+            significant_information[1] = True
+        if software_score > software_roll:
+            significant_information[2] = True
+        if documents_score > documents_roll:
+            significant_information[3] = True
+        return
 
