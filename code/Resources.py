@@ -142,6 +142,79 @@ class Resources:
         if compounds_score > compounds_roll:
             significant_natural[4] = True
         return
-
+    def generate_manufactured(self):
+        significant_manufactured = [False, False, False, False]
+        parts_score = 0
+        durables_score = 0
+        consumables_score = 0
+        weapons_score = 0
+        if 0 <= self.planet.uwp[2] <= 3 or 10 <= self.planet.uwp[2]:
+            parts_score += 1
+            durables_score += 1
+            consumables_score += 1
+            weapons_score += 1
+        if 0 <= self.planet.uwp[4] <= 4:
+            parts_score -= 1
+            durables_score -= 1
+            consumables_score -= 1
+            weapons_score  -=
+        elif 5 <= self.planet.uwp[4] <= 8:
+            parts_score += 1
+            durables_score += 2
+            consumables_score += 1
+        elif 9 <= self.planet.uwp[4]:
+            parts_score += 2
+            durables_score += 3
+            consumables_score += 4
+            weapons_score += 1
+        if self.planet.uwp[5] == 0 or 1:
+            parts_score -= 1
+            durables_score -= 1
+            consumables_score -=
+        elif 2 <= self.planet.uwp[5] <= 6:
+            parts_score += 1
+            durables_score += 1
+            consumables_score += 1
+            weapons_score += 1
+        elif self.planet.uwp[5] == 7:
+            parts_score += 2
+            durables_score += 2
+            consumables_score += 2
+            weapons_score += 3
+        elif 8 <= self.planet.uwp[5]:
+            consumables_score += 1
+            weapons_score += 1
+        if 4 <= self.planet.uwp[7] <= 6:
+            durables_score += 1
+            consumables_score += 1
+            weapons_score += 1
+        elif 7 <= self.planet.uwp[7] <= 11:
+            parts_score += 2
+            durables_score += 2
+            consumables_score += 2
+            weapons_score += 1
+        elif 12 <= self.planet.uwp[7]:
+            parts_score += 4
+            durables_score += 3
+            consumables_score += 4
+            weapons_score += 2
+        if self.planet.atmo_details.native_life:
+            parts_score += 1
+            durables_score += 1
+            consumables_score += 1
+            weapons_score += 1
+        parts_roll = self.dice.roll2d6()
+        durables_roll = self.dice.roll2d6()
+        consumables_roll = self.dice.roll2d6()
+        weapons_roll = self.dice.roll2d6()
+        if parts_score> parts_roll:
+            significant_manufactured[0] = True
+        if durables_score > durables_roll:
+            significant_manufactured[1] = True
+        if consumables_score > consumables_roll:
+            significant_manufactured[2] = True
+        if weapons_score > weapons_roll:
+            significant_manufactured[3] = True
+        return
 
 
