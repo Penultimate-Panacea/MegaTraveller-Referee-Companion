@@ -198,3 +198,13 @@ class HydDetailGenerator:
             weather_control = False
         self.weather_control = weather_control
         return
+
+    def generate_volcanoes(self):
+        # FIXME I DO NOT UNDERSTAND VOLCANOES
+        stress_factor = 0
+        max_possible_volcanoes = self.continents[0] + self.continents[1] + self.oceans[0]
+        notable_volcanoes = 0
+        if self.planet.uwp[3] == 10:
+            max_possible_volcanoes += self.dice.roll1d6()
+        if self.continents [0] == 1:
+            max_possible_volcanoes ++ self.dice.roll1d6() - 1
