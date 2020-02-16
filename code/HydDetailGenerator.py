@@ -48,3 +48,60 @@ class HydDetailGenerator:
         self.tectonic_plates = base - roll
         return
 
+    def generate_terraforming(self):
+        terra_score = 0
+        hydro_score = 0
+        if self.planet.uwp[1] == 1 or 2:
+            hydro_score += 2
+            terra_score += 4
+        elif self.planet.uwp[1] == 3 or 4:
+            hydro_score += 1
+            terra_score += 3
+        elif self.planet.uwp[1] == 5 or 6:
+            terra_score += 2
+        elif self.planet.uwp[1] == 3 or 4:
+            hydro_score += 1
+            terra_score += 3
+        elif self.planet.uwp[1] == 7 or 8:
+            hydro_score -= 1
+            terra_score += 1
+        elif self.planet.uwp[1] >= 9:
+            hydro_score -= 2
+        if self.planet.uwp[2] == 0:
+            hydro_score -= 4
+            terra_score -= 4
+        if self.planet.uwp[3] == 0:
+            terra_score += 1
+        elif 1 <= self.planet.uwp[3] <= 9:
+            hydro_score += 1
+        if self.planet.uwp[4] < 5:
+            hydro_score -= 2
+            terra_score -= 2
+        elif self.planet.uwp[4] > 7:
+            hydro_score += 2
+            terra_score += 2
+        if self.planet.uwp[7] < 5:
+            hydro_score -= 10
+            terra_score -= 10
+        elif 5 <= self.planet.uwp[7] <= 8:
+            hydro_score += 1
+            terra_score += 1
+        elif 9 <= self.planet.uwp[7] <= 11:
+            hydro_score += 2
+            terra_score += 3
+        elif 12 <= self.planet.uwp[7]:
+            hydro_score += 3
+            terra_score += 4
+        if not self.planet.atmo_details.native_life:
+            hydro_score += 3
+            terra_score += 3
+        hydro_roll = self.dice.roll2d6()
+        if hydro_score > hydro_roll:
+            hydro_terra = True
+        else:
+            hydro_terra = False
+        if terra_score > terra_roll:
+            terra_terra = True
+        else:
+            terra_terra = False
+        self.terraforming = [hydro_terra, terra_terra]
