@@ -15,3 +15,10 @@ class HydDetailGenerator:
         self.oceans = None
         self.volcanoes = None
         self.weather_control = None
+
+    def generate_percentage(self):
+        percent_roll = self.dice.roll2d6() - 7
+        percent = self.planet.uwp[3] * 10 + percent_roll
+        self.percentage = percent
+        return
+
