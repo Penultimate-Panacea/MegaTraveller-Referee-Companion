@@ -153,7 +153,7 @@ class HydDetailGenerator:
                 self.continents = [1, 2, 3, 4]
             return
 
-    def generat_oceans(self):
+    def generate_oceans(self):
         oceans_lol = [[0, 0, 0, 0],
                       [0, 0, 0, 0],
                       [0, 0, 0, self.dice.roll1d6()],
