@@ -138,7 +138,9 @@ class HydDetailGenerator:
             land_roll = self.dice.roll1d6()
             land_index = land_roll + self.planet.uwp[3] * 3
             self.continents = continent_lol[land_index - 16]
-            # TODO fix negative values
+            for i in self.continents:
+                if i < 0:
+                    self.continents[i] = 0
             return
         else:
             if self.percentage == 0:
@@ -172,7 +174,9 @@ class HydDetailGenerator:
             ocean_roll = self.dice.roll1d6()
             ocean_index = ocean_roll + self.planet.uwp[3] * 3
             self.oceans =oceans_lol[ocean_index - 1]
-            # TODO fix negative values
+            for i in self.oceans:
+                if i < 0:
+                    self.oceans[i] = 0
             return
         else:
             if self.percentage == 100:
