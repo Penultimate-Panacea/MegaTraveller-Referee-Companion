@@ -42,4 +42,9 @@ class HydDetailGenerator:
         else:
             self.composition = "Special Case (needs further study)"
             return
+    def generate_tectonic(self):
+        base = self.planet.uwp[1] + self.planet.uwp[2]
+        roll = self.dice.roll2d6()
+        self.tectonic_plates = base - roll
+        return
 
