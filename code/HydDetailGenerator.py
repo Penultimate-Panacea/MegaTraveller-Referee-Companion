@@ -102,6 +102,7 @@ class HydDetailGenerator:
             hydro_terra = True
         else:
             hydro_terra = False
+        terra_roll = self.dice.roll2d6()
         if terra_score > terra_roll:
             terra_terra = True
         else:
