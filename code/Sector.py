@@ -23,5 +23,5 @@ class Sector:
         self.trailward = None  # Sector
 
     def generate_sector(self):
-        #TODO THIS
+        # TODO THIS
         return

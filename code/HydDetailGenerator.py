@@ -1,5 +1,6 @@
 import diceroller
 
+
 class HydDetailGenerator:
     def __init__(self, planet, seed, orbit, star, orbit_zone):
         self.planet = planet
@@ -42,6 +43,7 @@ class HydDetailGenerator:
         else:
             self.composition = "Special Case (needs further study)"
             return
+
     def generate_tectonic(self):
         base = self.planet.uwp[1] + self.planet.uwp[2]
         roll = self.dice.roll2d6()
@@ -112,28 +114,30 @@ class HydDetailGenerator:
             else:
                 self.percentage -= modification
         return
+
     def generate_continents(self):
-        continent_lol = [[self.dice.roll2d6+1, self.dice.roll1d6()-1, self.dice.rollnd6(3)-3, self.dice.roll2d6()],
-                        [self.dice.roll2d6+1, self.dice.roll2d6()-2, self.dice.rollnd6(3)-3, self.dice.roll2d6()],
-                        [self.dice.roll2d6+1, self.dice.rollnd6(3)-3, self.dice.rollnd6(3)-3, self.dice.roll2d6()],
-                        [self.dice.roll2d6, self.dice.roll1d6()-1, self.dice.rollnd6(3)-3, self.dice.roll2d6()],
-                        [self.dice.roll2d6, self.dice.roll2d6()-2, self.dice.rollnd6(3)-3, self.dice.roll2d6()],
-                        [self.dice.roll2d6, self.dice.rollnd6(3)-3, self.dice.rollnd6(3)-3, self.dice.roll2d6()],
-                        [self.dice.roll1d6, self.dice.roll1d6() - 1, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
-                        [self.dice.roll1d6, self.dice.roll2d6() - 2, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
-                        [self.dice.roll1d6, self.dice.rollnd6(3) - 3, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
-                        [self.dice.roll1d6 - 1 , self.dice.roll1d6(), self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
-                        [self.dice.roll1d6 - 1, self.dice.roll2d6(), self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
-                        [self.dice.roll1d6 - 1 , self.dice.rollnd6(3), self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
-                        [self.dice.roll1d6 - 2, self.dice.roll1d6() - 1, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
-                        [self.dice.roll1d6 - 3, self.dice.roll1d6() - 2, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
-                        [self.dice.roll1d6 - 4, self.dice.roll1d6() - 3, self.dice.roll2d6(), self.dice.roll2d6()],
-                        [0, 0, self.dice.roll1d6() - 3, self.dice.roll2d6()],
-                        [0, 0, 0, self.dice.roll2d6()],
-                        [0, 0, 0, self.dice.roll2d6()],
-                        [0, 0, 0, self.dice.roll1d6()],
-                        [0, 0, 0, 0],
-                        [0, 0, 0, 0]]
+        continent_lol = [
+            [self.dice.roll2d6 + 1, self.dice.roll1d6() - 1, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll2d6 + 1, self.dice.roll2d6() - 2, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll2d6 + 1, self.dice.rollnd6(3) - 3, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll2d6, self.dice.roll1d6() - 1, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll2d6, self.dice.roll2d6() - 2, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll2d6, self.dice.rollnd6(3) - 3, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll1d6, self.dice.roll1d6() - 1, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll1d6, self.dice.roll2d6() - 2, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll1d6, self.dice.rollnd6(3) - 3, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll1d6 - 1, self.dice.roll1d6(), self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll1d6 - 1, self.dice.roll2d6(), self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll1d6 - 1, self.dice.rollnd6(3), self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll1d6 - 2, self.dice.roll1d6() - 1, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll1d6 - 3, self.dice.roll1d6() - 2, self.dice.rollnd6(3) - 3, self.dice.roll2d6()],
+            [self.dice.roll1d6 - 4, self.dice.roll1d6() - 3, self.dice.roll2d6(), self.dice.roll2d6()],
+            [0, 0, self.dice.roll1d6() - 3, self.dice.roll2d6()],
+            [0, 0, 0, self.dice.roll2d6()],
+            [0, 0, 0, self.dice.roll2d6()],
+            [0, 0, 0, self.dice.roll1d6()],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]]
         if self.percentage >= 50:
             land_roll = self.dice.roll1d6()
             land_index = land_roll + self.planet.uwp[3] * 3
@@ -144,10 +148,11 @@ class HydDetailGenerator:
             return
         else:
             if self.percentage == 0:
-                self.continents = [1,0,0,0]
+                self.continents = [1, 0, 0, 0]
             else:
                 self.continents = [1, 2, 3, 4]
             return
+
     def generat_oceans(self):
         oceans_lol = [[0, 0, 0, 0],
                       [0, 0, 0, 0],
@@ -155,8 +160,8 @@ class HydDetailGenerator:
                       [0, 0, 0, self.dice.roll2d6()],
                       [0, 0, 0, self.dice.roll2d6()],
                       [0, 0, self.dice.roll1d6() - 3, self.dice.roll2d6()],
-                      [self.dice.roll1d6() - 4, self.dice.roll1d6() - 3, self.dice.roll2d6() - 3 , self.dice.roll2d6],
-                      [self.dice.roll1d6() - 4, self.dice.roll1d6() - 2, self.dice.rollnd6(3) - 3 , self.dice.roll2d6],
+                      [self.dice.roll1d6() - 4, self.dice.roll1d6() - 3, self.dice.roll2d6() - 3, self.dice.roll2d6],
+                      [self.dice.roll1d6() - 4, self.dice.roll1d6() - 2, self.dice.rollnd6(3) - 3, self.dice.roll2d6],
                       [self.dice.roll1d6() - 3, self.dice.roll1d6() - 1, self.dice.rollnd6(3) - 3, self.dice.roll2d6],
                       [self.dice.roll1d6() - 3, self.dice.roll1d6() - 1, self.dice.rollnd6(3) - 3, self.dice.roll2d6],
                       [self.dice.roll1d6() - 2, self.dice.roll1d6() - 1, self.dice.rollnd6(3) - 3, self.dice.roll2d6],
@@ -173,15 +178,14 @@ class HydDetailGenerator:
         if self.percentage < 50:
             ocean_roll = self.dice.roll1d6()
             ocean_index = ocean_roll + self.planet.uwp[3] * 3
-            self.oceans =oceans_lol[ocean_index - 1]
+            self.oceans = oceans_lol[ocean_index - 1]
             for i in self.oceans:
                 if i < 0:
                     self.oceans[i] = 0
             return
         else:
             if self.percentage == 100:
-                self.oceans = [1,0,0,0]
+                self.oceans = [1, 0, 0, 0]
             else:
                 self.oceans = [0, 1, 3, 4]
             return
-
