@@ -1,5 +1,6 @@
 import diceroller
 
+# TODO City names and allocations. Maybe a city class>
 
 class PopDetailGenerator:
     def __init__(self, planet, seed):
