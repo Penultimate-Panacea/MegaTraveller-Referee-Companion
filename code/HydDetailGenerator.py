@@ -189,3 +189,12 @@ class HydDetailGenerator:
             else:
                 self.oceans = [0, 1, 3, 4]
             return
+
+    def generate_weather_control(self):
+        weather_roll = self.dice.roll2d6()
+        if weather_roll < self.planet.uwp[7] and weather_roll < self.planet.uwp[4]:
+            weather_control = True
+        else:
+            weather_control = False
+        self.weather_control = weather_control
+        return
