@@ -118,3 +118,52 @@ class Customs:
         roll2 = self.dice.roll_1d6() - 1
         chosen_eating_habit = eating_habits_lol[roll1][roll2]
         return chosen_eating_habit
+
+    def living_quarters(self):
+        living_quarters_0 = [self.generate_practicing_group() + " live privately",
+                             self.generate_practicing_group() + " live privately",
+                             self.generate_practicing_group() + " live apart in groups",
+                             self.generate_practicing_group() + " live apart in groups",
+                             self.generate_practicing_group() + " live in special locations",
+                             self.generate_practicing_group() + " live in special locations"]
+        living_quarters_1 = [self.generate_practicing_group() + " live at place of work",
+                             self.generate_practicing_group() + " live at place of work",
+                             self.generate_practicing_group() + " live at place of work",
+                             self.generate_practicing_group() + " live under special conditions",
+                             self.generate_practicing_group() + " live under special conditions",
+                             self.generate_practicing_group() + " are confined to quarters"]
+        living_quarters_2 = [self.generate_practicing_group() + " live under special care",
+                             self.generate_practicing_group() + " have extravagant quarters",
+                             self.generate_practicing_group() + " have extravagant quarters",
+                             self.generate_practicing_group() + " have minimal quarters",
+                             self.generate_practicing_group() + " have minimal quarters",
+                             self.generate_practicing_group() + " have minimal quarters"]
+        living_quarters_3 = [self.generate_practicing_group() + " have unusual quarters",
+                             self.generate_practicing_group() + " have unusual quarters",
+                             self.generate_practicing_group() + " quarters are taboo for " + 
+                             self.generate_practicing_group(),
+                             self.generate_practicing_group() + " quarters are taboo for " +
+                             self.generate_practicing_group(),
+                             self.generate_practicing_group() + " quarters are taboo for " +
+                             self.generate_practicing_group(),
+                             self.generate_practicing_group() + " quarters must be visited by " +
+                             self.generate_practicing_group()]
+        living_quarters_4 = [self.generate_practicing_group() + " quarters must be visited by " +
+                             self.generate_practicing_group(),
+                             self.generate_practicing_group() + " quarters must be visited by " +
+                             self.generate_practicing_group(),
+                             self.generate_practicing_group() + " live with groom's family",
+                             self.generate_practicing_group() + " live with bride's family",
+                             self.generate_practicing_group() + " live with children's family"]
+        living_quarters_5 = [self.generate_practicing_group() + " live with relatives",
+                             self.generate_practicing_group() + " live in communal housing",
+                             self.generate_practicing_group() + " live in communal housing",
+                             self.generate_practicing_group() + " live in communal housing",
+                             self.generate_practicing_group() + " live only in certain terrain",
+                             self.generate_practicing_group() + " must move around"]
+        living_quarters_lol = [living_quarters_0, living_quarters_1, living_quarters_2, living_quarters_3, living_quarters_4,
+                             living_quarters_5]
+        roll1 = self.dice.roll_1d6() - 1
+        roll2 = self.dice.roll_1d6() - 1
+        chosen_living_quarter = living_quarters_lol[roll1][roll2]
+        return chosen_living_quarter
