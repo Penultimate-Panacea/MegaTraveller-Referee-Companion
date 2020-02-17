@@ -279,3 +279,23 @@ class Customs:
         roll2 = self.dice.roll_1d6() - 1
         chosen_misc_custom = misc_customs_lol[roll1][roll2]
         return chosen_misc_custom
+
+    def misc_customs_2(self):
+        misc_custom2_0 = ["Free food/clothing required for" + self.generate_practicing_group(),
+                          "Free food/clothing prohibited for " + self.generate_practicing_group(),
+                          "Free education required for " + self.generate_practicing_group(),
+                          "Free education prohibited for " + self.generate_practicing_group(),
+                          "Unusual punishment required for " + self.generate_practicing_group(),
+                          "Unusual punishment prohibited for " + self.generate_practicing_group()]
+        misc_custom2_1 = ["Unusual training required for " + self.generate_practicing_group(),
+                          "Unusual training prohibited for " + self.generate_practicing_group(),
+                          "Unusual responsibilities for " + self.generate_practicing_group(),
+                          "Fixed times for visiting " + self.generate_practicing_group(),
+                          "Bargaining/haggling required " + self.generate_practicing_group(),
+                          "Bargaining/haggling prohibited" + self.generate_practicing_group()]
+        misc_custom2_2 = ["Travelling far away required for " + self.generate_practicing_group(),
+                          "Travelling far away prohibited for " + self.generate_practicing_group(),
+                          "Unusual holidays for " + self.generate_practicing_group(),
+                          "No holidays for " + self.generate_practicing_group(),
+                          "Unusual leasure/recreation for " + self.generate_practicing_group(),
+                          "Regimented leasure/recreation for " + self.generate_practicing_group()]
