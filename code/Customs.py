@@ -273,8 +273,8 @@ class Customs:
                           "Offworld contact required for " + self.generate_practicing_group(),
                           "Offworld contact prohibited for " + self.generate_practicing_group(),
                           "Unusual gift-giving customs for " + self.generate_practicing_group()]
-        misc_customs_lol = [misc_customs_0, misc_customs_1, misc_customs_2, misc_customs_3,
-                                misc_customs_4, misc_customs_5]
+        misc_customs_lol = [misc_custom1_0, misc_custom1_1, misc_custom1_2, misc_custom1_3, misc_custom1_4,
+                            misc_custom1_5]
         roll1 = self.dice.roll_1d6() - 1
         roll2 = self.dice.roll_1d6() - 1
         chosen_misc_custom = misc_customs_lol[roll1][roll2]
