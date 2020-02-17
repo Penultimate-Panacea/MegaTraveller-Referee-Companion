@@ -143,7 +143,7 @@ class Customs:
         chosen_eating_habit = eating_habits_lol[roll1][roll2]
         return chosen_eating_habit
 
-    def living_quarters(self):
+    def generate_living_quarters(self):
         living_quarters_0 = [self.generate_practicing_group() + " live privately",
                              self.generate_practicing_group() + " live privately",
                              self.generate_practicing_group() + " live apart in groups",
@@ -192,7 +192,7 @@ class Customs:
         chosen_living_quarter = living_quarters_lol[roll1][roll2]
         return chosen_living_quarter
 
-    def family_practices(self):
+    def generate_family_practices(self):
         family_practices_0 = ["Chiled named by " + self.generate_practicing_group(),
                               "Child named for living relative",
                               "Child named for dead relative",
@@ -236,7 +236,7 @@ class Customs:
         chosen_family_practice = family_practices_lol[roll1][roll2]
         return chosen_family_practice
 
-    def misc_customs_1(self):
+    def generate_misc_customs_1(self):
         misc_custom1_0 = ["Unusual sleep location for " + self.generate_practicing_group(),
                           "Unusual sleep time for " + self.generate_practicing_group(),
                           "Unusual sleep duration for " + self.generate_practicing_group(),
@@ -280,7 +280,7 @@ class Customs:
         chosen_misc_custom = misc_customs_lol[roll1][roll2]
         return chosen_misc_custom
 
-    def misc_customs_2(self):
+    def generate_misc_customs_2(self):
         misc_custom2_0 = ["Free food/clothing required for" + self.generate_practicing_group(),
                           "Free food/clothing prohibited for " + self.generate_practicing_group(),
                           "Free education required for " + self.generate_practicing_group(),
