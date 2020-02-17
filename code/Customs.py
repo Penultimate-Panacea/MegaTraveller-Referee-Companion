@@ -5,7 +5,7 @@ class Customs:
     def __init__(self, planet, seed):
         self.planet = planet
         self.dice = diceroller(seed)
-        self.customs = None
+        self.customs = self.generate_customs()
 
     def generate_practicing_group(self):
         group0 = ["Certain political groups",
@@ -323,3 +323,14 @@ class Customs:
         roll2 = self.dice.roll_1d6() - 1
         chosen_misc_custom = misc_customs_lol[roll1][roll2]
         return chosen_misc_custom
+
+    def generate_customs(self):
+        number_of_customs = self.dice.roll_1d6()
+        custom_list = []
+        while len(custom_list) < number_of_customs:
+            custom_type = self.dice.roll_1d6()
+            custom_function = [self.generate_dressing_habits(), self.generate_eating_habits(),
+                               self.generate_living_quarters(), self.generate_family_practices(),
+                               self.generate_misc_customs_1(), self.generate_misc_customs_2()]
+            custom_list.append(custom_function[custom_type - 1])
+        return custom_list
