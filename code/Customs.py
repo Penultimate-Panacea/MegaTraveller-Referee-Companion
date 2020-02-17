@@ -2,6 +2,24 @@ import diceroller
 
 
 class Customs:
+    """
+        A class for generating the customs list
+
+        ...
+
+        Attributes
+        ----------
+        planet : Planet
+            a string used to ensure that each die is reproducible.
+            It is recommended to use the name of the world being generated.
+
+        Methods
+        -------
+        generate_practicing_group()
+            Chooses
+
+
+        """
     def __init__(self, planet, seed):
         self.planet = planet
         self.dice = diceroller(seed)
@@ -52,7 +70,7 @@ class Customs:
             chosen_group = "The entire population"
         else:
             chosen_group = groups[roll1][roll2]
-        return chosen_group
+        return str(chosen_group)
 
     def generate_dressing_habits(self):
         dressing_habits_0 = ["Same clothes for all sexes",
