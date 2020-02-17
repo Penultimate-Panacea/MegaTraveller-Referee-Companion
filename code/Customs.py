@@ -129,7 +129,7 @@ class Customs:
                            self.generate_practicing_group() + " eat only certain ways",
                            "Rituals before eating for " + self.generate_practicing_group(),
                            "Rituals after eating for " + self.generate_practicing_group()]
-        eating_habits_5 = ["One sex eats the other's leftovers", 
+        eating_habits_5 = ["One sex eats the other's leftovers",
                            "One age eats the other's leftovers",
                            self.generate_practicing_group() + " eats the " + self.generate_practicing_group() +
                            " leftovers",
@@ -164,7 +164,7 @@ class Customs:
                              self.generate_practicing_group() + " have minimal quarters"]
         living_quarters_3 = [self.generate_practicing_group() + " have unusual quarters",
                              self.generate_practicing_group() + " have unusual quarters",
-                             self.generate_practicing_group() + " quarters are taboo for " + 
+                             self.generate_practicing_group() + " quarters are taboo for " +
                              self.generate_practicing_group(),
                              self.generate_practicing_group() + " quarters are taboo for " +
                              self.generate_practicing_group(),
@@ -186,7 +186,7 @@ class Customs:
                              self.generate_practicing_group() + " live only in certain terrain",
                              self.generate_practicing_group() + " must move around"]
         living_quarters_lol = [living_quarters_0, living_quarters_1, living_quarters_2, living_quarters_3, living_quarters_4,
-                             living_quarters_5]
+                               living_quarters_5]
         roll1 = self.dice.roll_1d6() - 1
         roll2 = self.dice.roll_1d6() - 1
         chosen_living_quarter = living_quarters_lol[roll1][roll2]
@@ -299,3 +299,27 @@ class Customs:
                           "No holidays for " + self.generate_practicing_group(),
                           "Unusual leasure/recreation for " + self.generate_practicing_group(),
                           "Regimented leasure/recreation for " + self.generate_practicing_group()]
+        misc_custom2_3 = ["Unusual maturity ceremony for " + self.generate_practicing_group(),
+                          "Unusual attitudes toward " + self.generate_practicing_group(),
+                          "Unusual significance of flora for" + self.generate_practicing_group(),
+                          "Unusual significance of fauna for" + self.generate_practicing_group(),
+                          "Unusual significance of smell for" + self.generate_practicing_group(),
+                          "Unusual significance of sound for" + self.generate_practicing_group()]
+        misc_custom2_4 = ["Unusual significance of color for" + self.generate_practicing_group(),
+                          "Unusual significance of air for" + self.generate_practicing_group(),
+                          "Unusual significance of water for" + self.generate_practicing_group(),
+                          "Unusual significance of light for" + self.generate_practicing_group(),
+                          "Unusual significance of clothing for" + self.generate_practicing_group(),
+                          "Unusual significance of computers for" + self.generate_practicing_group()]
+        misc_custom2_5 = ["Unusual significance of technology for" + self.generate_practicing_group(),
+                          "Unusual significance of robots for" + self.generate_practicing_group(),
+                          "Unusual significance of arts for" + self.generate_practicing_group(),
+                          "Unusual significance of superstition for" + self.generate_practicing_group(),
+                          "Daytime rest period required for " + self.generate_practicing_group(),
+                          "Daytime rest period prohibited for " + self.generate_practicing_group()]
+        misc_customs_lol = [misc_custom2_0, misc_custom2_1, misc_custom2_2, misc_custom2_3, misc_custom2_4,
+                            misc_custom2_5]
+        roll1 = self.dice.roll_1d6() - 1
+        roll2 = self.dice.roll_1d6() - 1
+        chosen_misc_custom = misc_customs_lol[roll1][roll2]
+        return chosen_misc_custom
