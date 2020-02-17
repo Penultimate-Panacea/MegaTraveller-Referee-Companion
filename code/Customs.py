@@ -30,3 +30,40 @@ class Customs:
             chosen_group = groups[roll1][roll2]
         return chosen_group
 
+    def generate_dressing_habits(self):
+        dressing_habits_0 = ["Same clothes for all sexes",
+                             "Unusual clothes for " + self.generate_practicing_group(),
+                             "Unusual clothes for " + self.generate_practicing_group(),
+                             "Unusual clothes for " + self.generate_practicing_group(),
+                             "Unusual headgear for " + self.generate_practicing_group(),
+                             "Unusual headgear for " + self.generate_practicing_group()]
+        dressing_habits_1 = ["Shaved heads for " + self.generate_practicing_group(),
+                             "Shaved heads for " + self.generate_practicing_group(),
+                             "Hair never cut " + self.generate_practicing_group(),
+                             "Hair never cut " + self.generate_practicing_group(),
+                             "Unusual hair color for " + self.generate_practicing_group(),
+                             "Unusual hair color for " + self.generate_practicing_group()]
+        dressing_habits_2 = ["Unusual hairdos for " + self.generate_practicing_group(),
+                             "Unusual hairdos for " + self.generate_practicing_group(),
+                             "Unusual hairdos for " + self.generate_practicing_group(),
+                             "Unusual eyebrows for " + self.generate_practicing_group(),
+                             "Unusual facial alterations for " + self.generate_practicing_group(),
+                             "Unusual body alternations for " + self.generate_practicing_group()]
+        dressing_habits_3 = ["Unusual fingernails for " + self.generate_practicing_group(),
+                             "Unusual fingernails for " + self.generate_practicing_group(),
+                             "Unusual toenails for " + self.generate_practicing_group(),
+                             "Unusual toenails for " + self.generate_practicing_group(),
+                             "Unusual cosmetics for " + self.generate_practicing_group(),
+                             "Unusual cosmetics for " + self.generate_practicing_group()]
+        dressing_habits_4 = ["Unusual cosmetics for " + self.generate_practicing_group(),
+                             "Unusual jewelery for " + self.generate_practicing_group(),
+                             "Unusual jewelery for " + self.generate_practicing_group(),
+                             "Unusual jewelery for " + self.generate_practicing_group(),
+                             "Unusual accessories for " + self.generate_practicing_group(),
+                             "Unusual accessories for " + self.generate_practicing_group()]
+        dressing_habits_5 = ["Unusual handgear for " + self.generate_practicing_group(),
+                             "Unusual handgear for " + self.generate_practicing_group(),
+                             "Tatooing on face for " + self.generate_practicing_group(),
+                             "Tatooing on body for " + self.generate_practicing_group(),
+                             "Tatooing on body for " + self.generate_practicing_group(),
+                             "Hidden tatooing for " + self.generate_practicing_group()]
