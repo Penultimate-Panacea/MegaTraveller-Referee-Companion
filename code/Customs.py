@@ -167,3 +167,48 @@ class Customs:
         roll2 = self.dice.roll_1d6() - 1
         chosen_living_quarter = living_quarters_lol[roll1][roll2]
         return chosen_living_quarter
+
+    def family_practices(self):
+        family_practices_0 = ["Chiled named by " + self.generate_practicing_group(),
+                              "Child named for living relative",
+                              "Child named for dead relative",
+                              "Child named for hero",
+                              "Child named for " + self.generate_practicing_group(),
+                              "Child named for object"]
+        family_practices_1 = ["Child renamed at adulthood",
+                              "Child renamed when marries",
+                              "Marriage arranged by " + self.generate_practicing_group(),
+                              "Marriage performed by " + self.generate_practicing_group(),
+                              "Marriage arranged by parents",
+                              "Marriage arranged by parents"]
+        family_practices_2 = ["Marriage performed by parents",
+                              "Marriage only within group for " + self.generate_practicing_group(),
+                              "Remarriage prohibited for " + self.generate_practicing_group(),
+                              "Remarriage required for " + self.generate_practicing_group(),
+                              "Groom's family pays dowery " + self.generate_practicing_group(),
+                              "Bride's family pays dowery " + self.generate_practicing_group()]
+        family_practices_3 = ["Dowery paid by outsiders for " + self.generate_practicing_group(),
+                              "Very short marriages the rule for " + self.generate_practicing_group(),
+                              "Very long marriages the rule for " + self.generate_practicing_group(),
+                              "Non-marriage the rule for " + self.generate_practicing_group(),
+                              "Very short marriages prohibited for " + self.generate_practicing_group(),
+                              "Very long marriages prohibited for " + self.generate_practicing_group()]
+        family_practices_4 = ["Non-marriage prohibited for " + self.generate_practicing_group(),
+                              "Divorce and remarriage required for " + self.generate_practicing_group(),
+                              "Widow must marry husband's relative for " + self.generate_practicing_group(),
+                              "Widow/Widower must commit suicide for " + self.generate_practicing_group(),
+                              "Widower must marry wife's relative for " + self.generate_practicing_group(),
+                              "Onerous prequisite to marriage for " + self.generate_practicing_group()]
+        family_practices_5 = ["Onerous prequisite to marriage for " + self.generate_practicing_group(),
+                              "Marriage only at certain times for " + self.generate_practicing_group(),
+                              "Marriage must be blessed by " + self.generate_practicing_group(),
+                              "Polyandry practiced by " + self.generate_practicing_group(),
+                              "Polygyny practiced by " + self.generate_practicing_group(),
+                              "Communal polygamy practiced by " + self.generate_practicing_group()]
+        family_practices_lol = [family_practices_0, family_practices_1, family_practices_2, family_practices_3,
+                                family_practices_4, family_practices_5]
+        roll1 = self.dice.roll_1d6() - 1
+        roll2 = self.dice.roll_1d6() - 1
+        chosen_family_practice = family_practices_lol[roll1][roll2]
+        return chosen_family_practice
+    
