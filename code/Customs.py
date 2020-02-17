@@ -235,4 +235,47 @@ class Customs:
         roll2 = self.dice.roll_1d6() - 1
         chosen_family_practice = family_practices_lol[roll1][roll2]
         return chosen_family_practice
-    
+
+    def misc_customs_1(self):
+        misc_custom1_0 = ["Unusual sleep location for " + self.generate_practicing_group(),
+                          "Unusual sleep time for " + self.generate_practicing_group(),
+                          "Unusual sleep duration for " + self.generate_practicing_group(),
+                          "Unusual sleep orientation for " + self.generate_practicing_group(),
+                          "Special language for " + self.generate_practicing_group(),
+                          "Sacred symbols for " + self.generate_practicing_group()]
+        misc_custom1_1 = ["Unusual duties for " + self.generate_practicing_group(),
+                          "Anonimity required for " + self.generate_practicing_group(),
+                          "Drinking/drugs prohibited for " + self.generate_practicing_group(),
+                          "Drinking/drugs required for " + self.generate_practicing_group(),
+                          "Bodily abuse prohibited for " + self.generate_practicing_group(),
+                          "Bodily abuse required for " + self.generate_practicing_group()]
+        misc_custom1_2 = ["Special privileges for " + self.generate_practicing_group(),
+                          "Special privileges for " + self.generate_practicing_group(),
+                          "Special privileges prohibited for " + self.generate_practicing_group(),
+                          "Unusual greetings for " + self.generate_practicing_group(),
+                          "Unusual greetings for " + self.generate_practicing_group(),
+                          "Unusual mannerisms for " + self.generate_practicing_group()]
+        misc_custom1_3 = ["Unusual leavetakings for " + self.generate_practicing_group(),
+                          "Unusual secret societies for " + self.generate_practicing_group(),
+                          "Closed meetings taboo for " + self.generate_practicing_group(),
+                          "Psionics allowed for " + self.generate_practicing_group(),
+                          "Psionics mean instant death for " + self.generate_practicing_group(),
+                          "Cloning allowed for " + self.generate_practicing_group()]
+        misc_custom1_4 = ["Cloning required for " + self.generate_practicing_group(),
+                          "Cloning prohibited for " + self.generate_practicing_group(),
+                          "Robots allowed for " + self.generate_practicing_group(),
+                          "Robots required for " + self.generate_practicing_group(),
+                          "Robots prohibited for " + self.generate_practicing_group(),
+                          "High-tech allowed for " + self.generate_practicing_group()]
+        misc_custom1_5 = ["High-tech required for " + self.generate_practicing_group(),
+                          "High tech prohibited for " + self.generate_practicing_group(),
+                          "Offworld contact allowed for "+ self.generate_practicing_group(),
+                          "Offworld contact required for " + self.generate_practicing_group(),
+                          "Offworld contact prohibited for " + self.generate_practicing_group(),
+                          "Unusual gift-giving customs for " + self.generate_practicing_group()]
+        misc_customs_lol = [misc_customs_0, misc_customs_1, misc_customs_2, misc_customs_3,
+                                misc_customs_4, misc_customs_5]
+        roll1 = self.dice.roll_1d6() - 1
+        roll2 = self.dice.roll_1d6() - 1
+        chosen_misc_custom = misc_customs_lol[roll1][roll2]
+        return chosen_misc_custom
