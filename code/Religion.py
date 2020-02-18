@@ -10,3 +10,6 @@ class Religion:
         self.fervor = None
         self.adherents = None
         self.profile = None  # Maybe this should be a toString style function?
+
+    def generate_god_view(self):
+        self.
