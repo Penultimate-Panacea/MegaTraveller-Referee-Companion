@@ -1,12 +1,14 @@
-import diceroller
-
-
 class GovernmentDetails:
     def __init__(self, planet, seed):
         self.planet = planet
-        self.dice = diceroller(seed)
-        self.representative_authority = self.determine_respresentative_authority()
-        self.other_authorities = None
+        self.dice = DiceRoller(seed)
+        self.representative_authority_org_type = self.determine_respresentative_authority_org_type()
+        self.representative_authority_branch = None  # handled via generate_other_authorities()
+        self.other_authorities = None  # handled via generate_other_authorities()
+        self.executive = self.generate_other_authorities()
+        self.judicial = self.generate_other_authorities()
+        self.legislative = self.generate_other_authorities()
+        self.generate_other_authorities()
 
     def generate_representative_authority(self):
         orgs = ["Democracy", "Elite Council", "Elite Council", "Elite Council", "Ruler", "Ruler", "Several Councils",
@@ -18,7 +20,7 @@ class GovernmentDetails:
         # TODO THIS
         return
 
-    def determine_respresentative_authority(self):
+    def determine_respresentative_authority_org_type(self):
         if self.planet.uwp[5]  == 0:
             return "No authority"
         elif self.planet.uwp[5] == 1:
@@ -60,7 +62,7 @@ class GovernmentDetails:
             while result == "Democracy":
                 result = self.generate_representative_authority()
             return result
-        elif self.planet.uwp[5] == 14
+        elif self.planet.uwp[5] == 14:
             result = self.generate_representative_authority()
             while result == "Democracy":
                 result = self.generate_representative_authority()
@@ -72,3 +74,26 @@ class GovernmentDetails:
             else:
                 return "Several Councils"
 
+    def generate_other_authorities(self):
+        splits = [3, 3, 2, 2, 1, 1]
+        split_roll = self.dice.roll1d6()
+        split = splits[split_roll - 1]
+        if split == 1:
+            return "No other authorities"
+        elif split == 2:
+            two_ways = [["Executive & Judicial", "Legislative"], ["Executive & Judicial", "Legislative"],
+                        ["Executive & Legislative", "Judicial"], ["Executive & Legislative", "Judicial"],
+                        ["Executive & Legislative", "Judicial"], ["Legislative & Judical", "Executive"]]
+            two_way_roll = self.dice.roll1d6()
+            two_way = two_ways[two_way_roll - 1]
+            self.representative_authority_branch = two_way[0]
+            self.other_authorities = two_way[1]
+            return
+        elif split == 3:
+            three_ways = [["Executive", "Legislative & Judicial"], ["Executive", "Legislative & Judicial"],
+                          ["Legislative", "Executive & Judicial"], ["Legislative", "Executive & Judicial"],
+                          ["Judicial", "Executive & Legislative"], ["Judicial", "Executive & Legislative"]]
+            three_way_roll = self.dice.roll1d6()
+            three_way = three_ways[three_way_roll - 1]
+            self.representative_authority_branch = three_way[0]
+            self.other_authorities = three_way[1]
