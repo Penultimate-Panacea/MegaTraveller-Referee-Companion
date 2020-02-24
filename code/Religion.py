@@ -11,5 +11,4 @@ class Religion:
         self.adherents = None
         self.profile = None  # Maybe this should be a toString style function?
 
-    def generate_god_view(self):
-        self.
+    # TODO Generate God View
